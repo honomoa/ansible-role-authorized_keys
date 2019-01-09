@@ -1,0 +1,9 @@
+---
+
+- name: Provision
+  include: provision.yml
+  tags:
+    - provision
+    - provision-authorized_keys
+    - deploy
+    - deploy-authorized_keys

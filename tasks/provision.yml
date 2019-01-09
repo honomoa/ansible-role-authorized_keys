@@ -1,0 +1,15 @@
+---
+
+- name: Add authorized keys
+  authorized_key:
+    user: "{{ item.user }}"
+    key: "{{ lookup('file', item.key) }}"
+    state: present
+  with_items: "{{ add_keys }}"
+
+- name: Remove authorized keys 
+  authorized_key:
+    user: "{{ item.user }}"
+    key: "{{ lookup('file', item.key) }}"
+    state: absent
+  with_items: "{{ remove_keys }}"
